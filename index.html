@@ -46,6 +46,22 @@
       padding-left: 18px;
       line-height: 1.7;
     }
+    a {
+      color: #0f6b5f;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .status {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 4px 8px;
+      border-radius: 6px;
+      background: #e9f4f1;
+      color: #0f5d52;
+      font-size: 13px;
+    }
   </style>
 </head>
 <body>
@@ -62,6 +78,7 @@
           <li>PPT 製作</li>
           <li>輸出交付</li>
         </ul>
+        <span class="status">流程已建立</span>
       </section>
       <section>
         <h2>選圖片</h2>
@@ -71,6 +88,7 @@
           <li>產品清楚</li>
           <li>手機舒服</li>
         </ul>
+        <span class="status">技能已整理</span>
       </section>
       <section>
         <h2>選音樂</h2>
@@ -80,14 +98,16 @@
           <li>品牌質感</li>
           <li>授權安全</li>
         </ul>
+        <span class="status">技能已整理</span>
       </section>
       <section>
         <h2>串接狀態</h2>
         <ul>
-          <li>GitHub CLI：待登入</li>
-          <li>Google Drive：待 rclone 授權</li>
-          <li>網站部署：待 GitHub 完成</li>
+          <li>GitHub CLI：已安裝，待登入</li>
+          <li>Google Drive：rclone 已安裝，待授權</li>
+          <li>網站 Git：已初始化並提交</li>
         </ul>
+        <span class="status">等待授權</span>
       </section>
     </div>
   </main>
