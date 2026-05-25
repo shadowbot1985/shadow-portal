@@ -9,4 +9,8 @@ if ! rclone listremotes | grep -qx "${remote}:"; then
   exit 1
 fi
 
-rclone copy . "${remote}:${target}" --create-empty-src-dirs --progress
+rclone copy . "${remote}:${target}" \
+  --exclude ".git/**" \
+  --exclude ".DS_Store" \
+  --create-empty-src-dirs \
+  --progress
