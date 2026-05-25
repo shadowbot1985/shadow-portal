@@ -1,25 +1,19 @@
-# 影子超能力入口網網站
+# 影子超能力入口網站
 
-這是影子自己的超能力入口網站專案，依 `partner-superpower-portal` 標準整理常用能力、流程、工具連結、HTML PPT、Google Drive 檔案和作品入口。
+目前先關掉重建。
 
-## 初版內容
+前一版把 `html-ppt-skill` 和 `partner-superpower-portal` 的定位混在一起，分類錯誤。現在先停用公開內容，重新依 Jason 指定的超能力入口網站標準製作。
 
-- HDMI PPT 標準製作流程
-- 超能力入口網站技能流程
-- HTML PPT 技能流程
-- 選圖片技能
-- 選音樂技能
-- Google Drive 工作資料夾入口
-- GitHub 專案入口
-- 交付前檢查表
-
-## 串接狀態
-
-- GitHub：已登入 `shadowbot1985`，repo 已推送到 `shadow-portal`
-- Google Drive：`shadow-drive:` 已授權
-- HTML PPT：`html-ppt-skill` 已安裝到本機 skills 目錄
-
-## 分類
+## 正確分類
 
 - `partner-superpower-portal`：超能力入口網站
-- `html-ppt-skill`：HTML PPT 製作
+- `html-ppt-skill`：HTML PPT 製作技能
+
+## 重建要求
+
+- 主入口
+- 所有網址列表
+- HTML PPT 目錄
+- 技能列表
+- Google Drive 檔案總管
+- 公私邊界與公開規則
