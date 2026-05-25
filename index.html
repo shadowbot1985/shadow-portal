@@ -5,14 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>影子超能力入口網</title>
   <style>
+    :root {
+      --ink: #17191c;
+      --muted: #59616d;
+      --line: #dde1e6;
+      --paper: #ffffff;
+      --bg: #f6f7f8;
+      --green: #0f6b5f;
+      --green-soft: #e9f4f1;
+      --blue: #285f9f;
+      --blue-soft: #eaf1fb;
+      --amber: #936013;
+      --amber-soft: #fff3d7;
+    }
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Noto Sans TC", "Segoe UI", sans-serif;
-      background: #f6f7f8;
-      color: #17191c;
+      background: var(--bg);
+      color: var(--ink);
     }
     main {
-      max-width: 980px;
+      max-width: 1080px;
       margin: 0 auto;
       padding: 40px 20px;
     }
@@ -23,8 +36,25 @@
     }
     .lead {
       margin: 0 0 28px;
-      color: #59616d;
+      color: var(--muted);
       line-height: 1.6;
+    }
+    .topbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 0 24px;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--paper);
+      color: var(--muted);
+      font-size: 13px;
     }
     .grid {
       display: grid;
@@ -32,14 +62,24 @@
       gap: 14px;
     }
     section {
-      background: #fff;
-      border: 1px solid #dde1e6;
+      background: var(--paper);
+      border: 1px solid var(--line);
       border-radius: 8px;
       padding: 18px;
+    }
+    section.primary {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(260px, 0.6fr);
+      gap: 18px;
     }
     h2 {
       margin: 0 0 10px;
       font-size: 18px;
+    }
+    h3 {
+      margin: 18px 0 8px;
+      font-size: 15px;
     }
     ul {
       margin: 0;
@@ -47,7 +87,7 @@
       line-height: 1.7;
     }
     a {
-      color: #0f6b5f;
+      color: var(--green);
       text-decoration: none;
     }
     a:hover {
@@ -58,18 +98,88 @@
       margin-top: 10px;
       padding: 4px 8px;
       border-radius: 6px;
-      background: #e9f4f1;
+      background: var(--green-soft);
       color: #0f5d52;
       font-size: 13px;
+    }
+    .status.blue {
+      background: var(--blue-soft);
+      color: var(--blue);
+    }
+    .status.amber {
+      background: var(--amber-soft);
+      color: var(--amber);
+    }
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: #f9fafb;
+      color: var(--ink);
+      font-size: 14px;
+    }
+    code {
+      padding: 2px 5px;
+      border-radius: 5px;
+      background: #eef0f2;
+      font-size: 13px;
+    }
+    @media (max-width: 760px) {
+      section.primary {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
   <main>
     <h1>影子超能力入口網</h1>
-    <p class="lead">集中管理影子的工作流程、素材判斷、音樂授權、PPT 製作和交付檢查。</p>
+    <p class="lead">集中管理影子的 GitHub、Google Drive、HTML PPT 製作、素材判斷、音樂授權和交付檢查。</p>
+    <div class="topbar">
+      <span class="pill">GitHub：已連線</span>
+      <span class="pill">Google Drive：已連線</span>
+      <span class="pill">HTML PPT Skill：已安裝</span>
+      <span class="pill">網站：可推送與同步</span>
+    </div>
 
     <div class="grid">
+      <section class="primary">
+        <div>
+          <h2>HTML PPT 工作台</h2>
+          <p class="lead">使用 `html-ppt-skill` 製作靜態 HTML 簡報，支援鍵盤播放、主題切換、動畫、講者模式、逐字稿和 PNG 輸出。</p>
+          <h3>標準流程</h3>
+          <ul>
+            <li>先確認內容、觀眾、頁數、風格與交付格式</li>
+            <li>從 full-deck 或 single-page template 開始，不從空白頁硬寫</li>
+            <li>每頁只放觀眾要看的內容，講者提示放在 notes</li>
+            <li>輸出前檢查比例、字級、圖片授權、動畫節奏與播放設備</li>
+          </ul>
+          <div class="links">
+            <a class="button" href="docs/HTML_PPT_技能流程.md">技能流程</a>
+            <a class="button" href="docs/HDMI_PPT_標準製作流程.md">HDMI PPT 流程</a>
+            <a class="button" href="docs/串接狀態.md">串接狀態</a>
+          </div>
+        </div>
+        <div>
+          <h2>快速命令</h2>
+          <ul>
+            <li><code>gh auth status</code></li>
+            <li><code>rclone about shadow-drive:</code></li>
+            <li><code>./scripts/publish-github.sh</code></li>
+            <li><code>./scripts/sync-drive.sh</code></li>
+          </ul>
+          <span class="status blue">可用</span>
+        </div>
+      </section>
       <section>
         <h2>HDMI PPT</h2>
         <ul>
@@ -103,11 +213,11 @@
       <section>
         <h2>串接狀態</h2>
         <ul>
-          <li>GitHub CLI：已安裝，待登入</li>
-          <li>Google Drive：rclone 已安裝，待授權</li>
-          <li>網站 Git：已初始化並提交</li>
+          <li>GitHub CLI：已登入 `shadowbot1985`</li>
+          <li>Google Drive：`shadow-drive:` 已授權</li>
+          <li>網站 Git：已追蹤 `origin/main`</li>
         </ul>
-        <span class="status">等待授權</span>
+        <span class="status">已完成</span>
       </section>
     </div>
   </main>
