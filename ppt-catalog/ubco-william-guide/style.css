@@ -1,0 +1,103 @@
+:root{
+  --ink:#16201d;
+  --muted:#5e6a65;
+  --paper:#f7f3ea;
+  --panel:#fffaf0;
+  --line:rgba(22,32,29,.14);
+  --green:#0d6b55;
+  --blue:#276a9b;
+  --red:#ba4d3d;
+  --gold:#c8872c;
+  --shadow:0 22px 60px rgba(34,39,31,.12);
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","PingFang TC","Microsoft JhengHei",Arial,sans-serif;color:var(--ink);background:var(--paper)}
+body{overflow:hidden}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+.deck{width:100vw;height:100vh;position:relative;overflow:hidden;background:
+  radial-gradient(circle at 18% 14%,rgba(39,106,155,.12),transparent 30%),
+  linear-gradient(135deg,#f9f4e7 0%,#edf2ec 52%,#eef3f6 100%)}
+.slide{position:absolute;inset:0;padding:54px 68px 92px;display:none}
+.slide.active{display:block}
+.canvas{height:100%;position:relative;display:flex;flex-direction:column;justify-content:center}
+.topline{position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;gap:18px;align-items:center;font-size:13px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.kicker{font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
+h1,h2,h3,p{margin:0}
+h1{font-size:76px;line-height:1.02;letter-spacing:0;font-weight:900;max-width:900px}
+h2{font-size:44px;line-height:1.18;letter-spacing:0;font-weight:850;max-width:1080px}
+h3{font-size:22px;line-height:1.28;font-weight:820}
+.lead{font-size:23px;line-height:1.58;color:var(--muted);max-width:850px;margin-top:22px}
+.small{font-size:15px;line-height:1.55;color:var(--muted)}
+.tiny{font-size:12px;line-height:1.45;color:var(--muted)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:38px;align-items:center}
+.photo{min-height:470px;border-radius:8px;overflow:hidden;position:relative;background-size:cover;background-position:center;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.55)}
+.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.48))}
+.caption{position:absolute;left:24px;right:24px;bottom:20px;color:white;font-size:15px;line-height:1.5;z-index:2}
+.stamp{display:inline-flex;gap:9px;align-items:center;border:1px solid var(--line);border-radius:999px;padding:8px 13px;font-weight:750;color:var(--green);background:rgba(255,250,240,.72);width:max-content}
+.grid{display:grid;gap:18px}
+.cols2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.cols3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.cols4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{background:rgba(255,250,240,.86);border:1px solid var(--line);border-radius:8px;padding:22px;box-shadow:0 12px 32px rgba(35,42,34,.08)}
+.card.blue{border-top:5px solid var(--blue)}
+.card.green{border-top:5px solid var(--green)}
+.card.red{border-top:5px solid var(--red)}
+.card.gold{border-top:5px solid var(--gold)}
+.metric{font-size:46px;line-height:1;font-weight:900;color:var(--green);margin-bottom:10px}
+.metric.blue{color:var(--blue)}
+.metric.red{color:var(--red)}
+.metric.gold{color:var(--gold)}
+.list{display:grid;gap:12px;margin-top:18px}
+.item{display:grid;grid-template-columns:16px 1fr;gap:10px;align-items:start;font-size:18px;line-height:1.48;color:var(--ink)}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--green);margin-top:9px}
+.route{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:24px}
+.step{background:rgba(255,255,255,.62);border:1px solid var(--line);border-radius:8px;padding:18px;min-height:156px}
+.step b{display:inline-flex;width:30px;height:30px;border-radius:50%;align-items:center;justify-content:center;background:var(--green);color:#fff;margin-bottom:12px}
+.band{margin-top:24px;padding:18px 20px;border-left:5px solid var(--red);background:rgba(186,77,61,.08);font-size:18px;line-height:1.5;color:#58302a}
+.source{position:absolute;left:0;right:0;bottom:0;font-size:12px;color:var(--muted);line-height:1.45}
+.source a{color:var(--muted);text-decoration:underline;text-underline-offset:2px}
+.split{display:grid;grid-template-columns:.92fr 1.08fr;gap:30px;align-items:center}
+.tag-cloud{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.tag{border:1px solid var(--line);background:rgba(255,255,255,.55);padding:8px 11px;border-radius:999px;font-size:14px;font-weight:720;color:var(--muted)}
+.mapbox{height:500px;border:1px solid var(--line);border-radius:8px;background:
+  linear-gradient(90deg,rgba(13,107,85,.14) 1px,transparent 1px),
+  linear-gradient(rgba(39,106,155,.12) 1px,transparent 1px),rgba(255,255,255,.6);
+  background-size:44px 44px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.pin{position:absolute;transform:translate(-50%,-50%);background:#fff;border:2px solid var(--green);border-radius:999px;padding:8px 12px;font-size:14px;font-weight:820;white-space:nowrap;box-shadow:0 10px 22px rgba(0,0,0,.12)}
+.pin.blue{border-color:var(--blue)}.pin.gold{border-color:var(--gold)}.pin.red{border-color:var(--red)}
+.line-path{position:absolute;height:4px;background:rgba(13,107,85,.42);transform-origin:left center;border-radius:999px}
+.todo{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start;padding:14px 0;border-bottom:1px solid var(--line)}
+.todo b{width:28px;height:28px;border-radius:6px;background:var(--green);color:white;display:flex;align-items:center;justify-content:center;font-size:15px}
+.sources{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:24px}
+.sources a{display:block;border:1px solid var(--line);background:rgba(255,255,255,.58);border-radius:8px;padding:14px 16px;color:var(--ink);font-size:15px}
+.progress{position:fixed;left:0;bottom:0;height:4px;background:var(--green);width:0;z-index:20;transition:width .2s ease}
+.remote{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:30;display:flex;gap:8px;align-items:center;background:rgba(22,32,29,.88);color:white;border-radius:999px;padding:8px 10px;box-shadow:0 16px 44px rgba(0,0,0,.22);backdrop-filter:blur(10px)}
+.remote-title{font-size:12px;color:rgba(255,255,255,.72);padding:0 10px;white-space:nowrap}
+.remote button{border:0;border-radius:999px;background:rgba(255,255,255,.12);color:white;min-width:58px;height:42px;font-weight:850;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.remote-small{font-size:11px;font-weight:650;color:rgba(255,255,255,.72);line-height:1}
+.modal{position:fixed;inset:0;background:rgba(13,20,18,.76);display:none;align-items:center;justify-content:center;padding:28px;z-index:40}
+.modal.show{display:flex}
+.modal-card{width:min(960px,96vw);max-height:86vh;overflow:auto;background:var(--panel);border-radius:10px;padding:26px;box-shadow:var(--shadow)}
+.modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+.modal-head h2{font-size:28px}
+.close{border:1px solid var(--line);background:white;border-radius:999px;padding:9px 13px;cursor:pointer}
+.ppt-list{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.ppt-card{border:1px solid var(--line);border-radius:8px;background:white;text-align:left;padding:14px;cursor:pointer;min-height:86px}
+.ppt-card b{display:block;color:var(--green);margin-bottom:8px}
+.points{font-size:18px;line-height:1.6}
+.toast{position:fixed;right:20px;bottom:84px;background:var(--green);color:#fff;border-radius:999px;padding:10px 14px;z-index:50;opacity:0;transform:translateY(8px);transition:.2s}
+.toast.show{opacity:1;transform:translateY(0)}
+body.ppt-immersive-on .remote{display:none}
+@media (max-width:900px){
+  body{overflow:auto}
+  .deck{height:auto;min-height:100vh;overflow:visible}
+  .slide{position:relative;min-height:100vh;display:block;padding:34px 20px 112px;border-bottom:1px solid var(--line)}
+  .slide:not(.active){display:block}
+  h1{font-size:46px}h2{font-size:31px}.lead{font-size:19px}
+  .hero-grid,.split,.cols2,.cols3,.cols4,.route,.sources{grid-template-columns:1fr}
+  .photo,.mapbox{min-height:320px;height:360px}
+  .remote{left:10px;right:10px;transform:none;overflow:auto;border-radius:18px}
+  .remote-title{display:none}
+  .ppt-list{grid-template-columns:1fr}
+}
